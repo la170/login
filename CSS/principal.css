@@ -1,0 +1,130 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+}
+header{
+    height: 7%;
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+    border: 1px solid green;
+}
+.header_1{
+    width: 100%; 
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    justify-content: space-between;
+}
+.header_2{
+    width: 100%;
+    display: flex;
+    justify-items: end;
+    justify-content: end;
+    padding-right: 5%;
+}
+.title{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.imagen_texto{
+    display: flex;
+    justify-content: space-between;
+    border: solid red 1px;
+
+}
+.main_1{
+    width: 100%;
+    height: 100vh;
+    padding: 0 5%;
+}
+.carrusel_fotos{
+    width: 50%;
+    height: 100%;
+    padding-right: 5%;
+}
+.texto{
+    width: 50%;
+    height: 100%;
+    padding-top: 3%;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.main_2{
+    width: 100%;
+    height: 60%;
+    border: solid green 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3%;   
+}
+.tarjetas{
+    border: red solid 1px;
+    width: 30%;
+    height: 100%;
+    padding: 1%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagen_tarjeta{
+    padding: 5%;
+    height: 40%;
+    width: fit-content;
+}
+
+.texto_tarjeta{
+    height: 20%;
+    text-align: justify;
+    overflow: scroll;
+}
+
+.precio_tarjetas{
+    text-align: center;
+    padding-bottom: 5%;
+}
+.boton_tarjetas{
+    background-color: aqua;
+    border: cadetblue 1px solid;
+}   
+.ventana_modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top:0;
+    color: #000000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    cursor: pointer;
+    width: 80%;
+    height: 100%;
+    background-color: #e45353;
+    margin: auto;
+}
+.modal_close{
+    background-color: rgb(160, 70, 70);
+    width: 50px;
+    color: #000;
+}
