@@ -1,7 +1,7 @@
 const carrusel = document.querySelector('.carrusel')
 const url = "https://fakestoreapi.com/products"
 const tarjetas = document.querySelector('.main_2')
-let fotos = ["../IMG/carrusel/img1.jpg", "../IMG/carrusel/img2.jpg", "../IMG/carrusel/img3.jpg"]
+let fotos = ["../IMG/carrusel/img1.jpg", "../IMG/carrusel/img1.jpg", "../IMG/carrusel/img1.jpg"]
 
 let indice = 0
 setInterval(()=>{
@@ -31,11 +31,10 @@ async function traer(){
     })
     let seleccionado = null
     tarjetas.addEventListener('click',(evento)=>{
-        if(evento.target.classList.contains('btn')){
+        if(evento.target.classList.contains('boton_tarjetas')){
             seleccionado = elementos.filter(tarjeta=>tarjeta.title==evento.target.parentElement.querySelector('.titulo_tarjetas').textContent)
-            console.log(seleccionado)
             ventanaModal.style.display = 'flex'
-            const modalBody= document.querySelector('.ventana_modal')
+            const modalBody= document.querySelector('.modal_body')
             modalBody.innerHTML= `
             <div class="tarjetas">
                 <h3 class="titulo_tarjetas">${seleccionado[0].title}</h3>
@@ -46,25 +45,22 @@ async function traer(){
                 <button class="btn boton_cancelar">CANCELAR</button>
             </div>`
         }
-        const cerrarModal = document.querySelector('.boton_cancelar')
-        cerrarModal.addEventListener('click',closeModal)
-        
+    })
+    function closeModal(){
+        ventanaModal.style.display='none'
+    }     
+    const cerrarModal = document.querySelector('.boton_cancelar')
 
-        function closeModal(){
-            ventanaModal.style.display='none'
-        }
-      
-
-
-        ventanaModal.addEventListener('click',(evento)=>{
-            if (evento.target.classList.contains('boton_cancelar')){
-                closeModal()
-            }else if(evento.target.classList.contains('boton_comprar')){
-                if (confirm(`seguro que desea comprar ${seleccionado[0].title}`)==true){
-                    localStorage.setItem('producto', JSON.stringify(seleccionado))
-                }
+    ventanaModal.addEventListener('click',(evento)=>{
+        if (evento.target.classList.contains('boton_cancelar')){
+            closeModal()
+        }else if(evento.target.classList.contains('boton_comprar')){
+            if (confirm(`seguro que desea comprar ${seleccionado[0].title}`)){
+                localStorage.setItem('producto', JSON.stringify(seleccionado))
+            }else{
+                console.log('cancelaste')
             }
-        })
+        }
     })
 }
 traer()
@@ -73,8 +69,6 @@ const ventanaModal = document.querySelector('.ventana_modal')
 
 cerrar.addEventListener('click',()=>{
     ventanaModal.style.display='none'
-
 })
-
 
 
